@@ -35,9 +35,7 @@
 
 - Flask Web框架
 
-  > 将对CMDB的操作与Web框架相结合，通过页面的方式对CMDB进行操作
-
-  - 番外：基本html和css讲解
+  > 将对CMDB的操作与Web框架相结合，通过API的方式对CMDB进行操作
   - 面试番外：计算机网络
 
 - MySQL数据库
