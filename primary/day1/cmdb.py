@@ -1,5 +1,6 @@
-import json
+import os
 import sys
+import json
 
 
 def read_file():
@@ -106,15 +107,21 @@ def delete(path, attrs=None):
 def get(path):
     data = read_file()
     target_path, last_seg = locate_path(data, path)
+    if last_seg not in target_path:
+        print("no data")
+        return
     print(json.dumps(target_path[last_seg], indent=2))
 
 
 if __name__ == "__main__":
-    operations = ["get", "update", "delete"]
+    operations = ["get", "add", "update", "delete"]
     args = sys.argv
     if len(args) < 3:
         print("please input operation and args")
     else:
+        if not os.path.exists("data.json"):
+            with open("data.json", "a+") as f:
+                f.write("{}")
         if args[1] == "init":
             init(args[2])
         elif args[1] == "add":
@@ -126,4 +133,4 @@ if __name__ == "__main__":
         elif args[1] == "delete":
             delete(*args[2:])
         else:
-            print("operation must be one of get,update,delete")
+            print("operation must be one of init, get, add, update, delete")
