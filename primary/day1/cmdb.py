@@ -38,14 +38,12 @@ def locate_path(data, path):
 
 
 def init(region):
-    with open("data.json", "r+") as f:
-        data = json.load(f)
+    data = read_file()
     if region in data:
         print("region %s already exists" % region)
         return
     data[region] = {"idc": region, "switch": {}, "router": {}}
-    with open("data.json", "w+") as f:
-        json.dump(data, f, indent=2)
+    write_file(data)
     print(json.dumps(data, indent=2))
 
 
@@ -53,15 +51,13 @@ def add(path, attrs=None):
     attrs = check_parse(attrs)
     if not attrs:
         return
-    with open("data.json", "r+") as f:
-        data = json.load(f)
+    data = read_file()
     target_path, last_seg = locate_path(data, path)
     if last_seg in target_path:
         print("%s already exists in %s, please use update operation" % (last_seg, path))
         return
     target_path[last_seg] = attrs
-    with open("data.json", "w+") as f:
-        json.dump(data, f, indent=2)
+    write_file(data)
     print(json.dumps(data, indent=2))
 
 
@@ -115,7 +111,7 @@ def get(path):
 
 if __name__ == "__main__":
     operations = ["get", "add", "update", "delete"]
-    args = sys.argv
+    args = sys.argv  # ["cmdb.py", "get", "/beijing"]
     if len(args) < 3:
         print("please input operation and args")
     else:
