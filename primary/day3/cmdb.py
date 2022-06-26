@@ -47,7 +47,7 @@ class CMDB:
             ops.append(m)
         return ops
 
-    def execute(self, op, args):
+    def execute(self, op, *args):
         if op not in self.operations:
             raise Exception("%s is not valid CMDB operation, should is %s" % (op, ",".join(self.operations)))
         method = getattr(self, op)
@@ -166,6 +166,21 @@ def cmdb_handler():
         return cmdb
     except Exception as e:
         raise Exception("get cmdb handler failed, err: %s" % str(e))
+
+
+class HTTPParams(Params):
+    def parse(self, **kwargs):
+        if len(kwargs) < 2:
+            raise Exception("please input operation and args, operations: %s" % ",".join(self.operations))
+        operation = kwargs.get("operation")
+        region = kwargs.get("region")
+        path = kwargs.get("path")
+        attr = kwargs.get("attr")
+        if operation is not None and region is not None:  # 处理init
+            return operation, [region]
+        if attr is not None:
+            return operation, [path, attr]
+        return operation, [path]  # 处理get
 
 
 if __name__ == "__main__":

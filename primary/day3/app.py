@@ -1,31 +1,21 @@
 from flask import Flask, request
-from cmdb import cmdb_handler
+from cmdb import cmdb_handler, HTTPParams
 
 CMDB_HANDLER = cmdb_handler()
 
 app = Flask(__name__)
 
 
-@app.route("/")
-def index():
-    return "hello world"
-
-
-@app.route("/get", methods=["GET"])
-def get():
-    """查询CMDB"""
-    path = request.args.get("path", "/")
-    ret = CMDB_HANDLER.execute("get", [path])
-    return ret
-
-
-@app.route("/init", methods=["POST"])
-def init():
-    """初始化地域"""
-    data = request.get_json()
-    region = data.get("region", "")
-    ret = CMDB_HANDLER.execute("init", [region])
-    return ret
+@app.route("/cmdb", methods=["POST"])
+def cmdb():
+    """操作CMDB"""
+    try:
+        params = HTTPParams(CMDB_HANDLER.operations)
+        op, args = params.parse(**request.form)
+        ret = CMDB_HANDLER.execute(op, *args)
+        return {"data": ret, "status_code": "OK", "message": "operate cmdb success"}
+    except Exception as e:
+        return {"data": None, "status_code": "Fail", "message": str(e)}
 
 
 if __name__ == "__main__":
