@@ -1,0 +1,94 @@
+{
+  "beijing": {
+    "idc": "beijing",
+    "switch": {
+      "10.0.0.1": {
+        "ip": "10.0.0.1",
+        "manufacturer": "cisco",
+        "hostname": "cisco-nx95-00-00-01",
+        "hardware": "nexus9500",
+        "role": "asw",
+        "port": [
+          "Eth1/1/0",
+          "Eth1/1/1",
+          "Eth1/1/2"
+        ],
+        "label1": {
+          "k": "v",
+          "k2": "v2",
+          "k3": "v3"
+        },
+        "stack": true,
+        "label": "test"
+      },
+      "10.0.0.2": {
+        "ip": "10.0.0.2",
+        "manufacturer": "cisco",
+        "hostname": "cisco-nx95-00-00-02",
+        "hardware": "nexus9500",
+        "role": "dsw",
+        "port": [
+          "GEth1/1/0",
+          "GEth1/1/1",
+          "GEth1/1/2"
+        ],
+        "stack": true
+      }
+    },
+    "router": {
+      "10.0.0.3": {
+        "ip": "10.0.0.3",
+        "manufacturer": "cisco",
+        "hostname": "cisco-nx95-00-00-01",
+        "hardware": "nexus9500",
+        "role": "br",
+        "port": [
+          "TGEth1/0/0/1",
+          "TGEth1/0/0/2",
+          "TGEth1/0/0/3"
+        ],
+        "bgp_as": 64512
+      }
+    }
+  },
+  "shanghai": {
+    "idc": "shanghai",
+    "switch": {
+      "10.0.1.1": {
+        "ip": "10.0.1.1",
+        "manufacturer": "cisco",
+        "hostname": "cisco-nx95-00-01-01",
+        "hardware": "nexus9500",
+        "role": "asw",
+        "port": [
+          "Eth1/1/0",
+          "Eth1/1/1",
+          "Eth1/1/2"
+        ],
+        "stack": false
+      }
+    },
+    "router": {
+      "10.0.1.3": {
+        "ip": "10.0.1.3",
+        "manufacturer": "cisco",
+        "hostname": "cisco-nx95-00-01-01",
+        "hardware": "nexus9500",
+        "role": "br",
+        "port": [
+          "TGEth1/0/0/1",
+          "TGEth1/0/0/2",
+          "TGEth1/0/0/3"
+        ],
+        "bgp_as": 64512
+      }
+    }
+  },
+  "hangzhou": {
+    "idc": "hangzhou",
+    "switch": {},
+    "router": {}
+  },
+  "version": 2,
+  "update_time": "2022-06-21 22:48:22"
+}

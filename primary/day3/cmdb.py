@@ -158,6 +158,16 @@ class Params:
         return operation, params
 
 
+def cmdb_handler():
+    try:
+        file_path = os.path.join(os.path.dirname(__file__), "data.json")
+        file_store = Store("FILE", file_path)  # 实例化一个文件存储的存储对象
+        cmdb = CMDB(file_store)  # 传入读出的数据源实例化一个CMDB的对象
+        return cmdb
+    except Exception as e:
+        raise Exception("get cmdb handler failed, err: %s" % str(e))
+
+
 if __name__ == "__main__":
     try:
         file_path = os.path.join(os.path.dirname(__file__), "data.json")
