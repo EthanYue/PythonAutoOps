@@ -1,10 +1,6 @@
-from flask import Flask
+from app import app
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import text
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:Yfy98333498@127.0.0.1:3306/python_ops?charset=utf8"
-app.config['SQLALCHEMY_ECHO'] = True
 db = SQLAlchemy(app)
 
 
