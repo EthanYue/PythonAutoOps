@@ -278,6 +278,7 @@ def add_ports():
         return jsonify({"status_code": HTTPStatus.INTERNAL_SERVER_ERROR, "message": str(e)})
 
 
+
 @app.route("/cmdb/get_ports")
 def get_ports():
     """ 查询设备端口 """
