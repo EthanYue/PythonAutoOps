@@ -1,0 +1,107 @@
+[2022-09-24 10:28:49 +0800] [97326] [INFO] Starting gunicorn 20.1.0
+[2022-09-24 10:28:49 +0800] [97326] [INFO] Listening at: http://0.0.0.0:8080 (97326)
+[2022-09-24 10:28:49 +0800] [97326] [INFO] Using worker: sync
+[2022-09-24 10:28:49 +0800] [97332] [INFO] Booting worker with pid: 97332
+[2022-09-24 10:28:50 +0800] [97342] [INFO] Booting worker with pid: 97342
+[2022-09-24 10:28:50 +0800] [97347] [INFO] Booting worker with pid: 97347
+[2022-09-24 10:28:50 +0800] [97348] [INFO] Booting worker with pid: 97348
+[2022-09-24 11:00:13 +0800] [97326] [CRITICAL] WORKER TIMEOUT (pid:97332)
+[2022-09-24 11:00:13 +0800] [97326] [CRITICAL] WORKER TIMEOUT (pid:97342)
+[2022-09-24 11:00:13 +0800] [97326] [CRITICAL] WORKER TIMEOUT (pid:97347)
+[2022-09-24 11:00:13 +0800] [97326] [CRITICAL] WORKER TIMEOUT (pid:97348)
+[2022-09-24 11:00:13 +0800] [97342] [INFO] Worker exiting (pid: 97342)
+[2022-09-24 11:00:13 +0800] [97332] [INFO] Worker exiting (pid: 97332)
+[2022-09-24 11:00:13 +0800] [97347] [INFO] Worker exiting (pid: 97347)
+[2022-09-24 11:00:13 +0800] [97348] [INFO] Worker exiting (pid: 97348)
+[2022-09-24 11:00:14 +0800] [97326] [WARNING] Worker with pid 97348 was terminated due to signal 9
+[2022-09-24 11:00:14 +0800] [97326] [WARNING] Worker with pid 97347 was terminated due to signal 9
+[2022-09-24 11:00:14 +0800] [30917] [INFO] Booting worker with pid: 30917
+[2022-09-24 11:00:14 +0800] [30918] [INFO] Booting worker with pid: 30918
+[2022-09-24 11:00:14 +0800] [30919] [INFO] Booting worker with pid: 30919
+[2022-09-24 11:00:14 +0800] [30920] [INFO] Booting worker with pid: 30920
+[2022-09-24 11:00:14 +0800] [30917] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/venv/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/venv/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/venv/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/venv/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/venv/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/venv/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/venv/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/primary/day4/app.py", line 8, in <module>
+    from flask import Flask, request, jsonify
+ModuleNotFoundError: No module named 'flask'
+[2022-09-24 11:00:14 +0800] [30918] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/venv/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/venv/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/venv/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/venv/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/venv/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/venv/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/venv/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/primary/day4/app.py", line 8, in <module>
+    from flask import Flask, request, jsonify
+ModuleNotFoundError: No module named 'flask'
+[2022-09-24 11:00:14 +0800] [30920] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/venv/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/venv/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/venv/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/venv/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/venv/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/venv/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/venv/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/primary/day4/app.py", line 8, in <module>
+    from flask import Flask, request, jsonify
+ModuleNotFoundError: No module named 'flask'
+[2022-09-24 11:00:14 +0800] [30919] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/venv/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/venv/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/venv/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/venv/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/venv/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/venv/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/venv/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/primary/day4/app.py", line 8, in <module>
+    from flask import Flask, request, jsonify
+ModuleNotFoundError: No module named 'flask'
+[2022-09-24 11:00:14 +0800] [30917] [INFO] Worker exiting (pid: 30917)
+[2022-09-24 11:00:14 +0800] [30918] [INFO] Worker exiting (pid: 30918)
+[2022-09-24 11:00:14 +0800] [30920] [INFO] Worker exiting (pid: 30920)
+[2022-09-24 11:00:14 +0800] [30919] [INFO] Worker exiting (pid: 30919)
+[2022-09-24 11:02:36 +0800] [97326] [INFO] Shutting down: Master
+[2022-09-24 11:02:36 +0800] [97326] [INFO] Reason: Worker failed to boot.

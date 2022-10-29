@@ -19,7 +19,7 @@
           "k3": "v3"
         },
         "stack": true,
-        "label": "test"
+        "label": "flask_api"
       },
       "10.0.0.2": {
         "ip": "10.0.0.2",
@@ -83,5 +83,12 @@
         "bgp_as": 64512
       }
     }
-  }
+  },
+  "hangzhou": {
+    "idc": "hangzhou",
+    "switch": {},
+    "router": {}
+  },
+  "version": 3,
+  "update_time": "2022-06-26 12:44:55"
 }
