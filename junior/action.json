@@ -1,0 +1,32 @@
+[
+  {
+    "name": "fans_check",
+    "description": "风扇检查",
+    "vendor": "cisco",
+    "model": "nexus",
+    "cmd": "show fans",
+    "type": "show",
+    "parse_type": "regexp",
+    "parse_content": ""
+  },
+  {
+    "name": "fans_check",
+    "description": "风扇检查",
+    "vendor": "cisco",
+    "model": "ios",
+    "cmd": "show fans",
+    "type": "show",
+    "parse_type": "regexp",
+    "parse_content": ""
+  },
+  {
+    "name": "fans_check",
+    "description": "风扇检查",
+    "vendor": "huawei",
+    "model": "",
+    "cmd": "display fans",
+    "type": "show",
+    "parse_type": "regexp",
+    "parse_content": ""
+  }
+]
