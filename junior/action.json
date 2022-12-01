@@ -14,7 +14,7 @@
     "description": "风扇检查",
     "vendor": "cisco",
     "model": "ios",
-    "cmd": "show fans",
+    "cmd": "show env fan",
     "type": "show",
     "parse_type": "regexp",
     "parse_content": ""
@@ -25,6 +25,16 @@
     "vendor": "huawei",
     "model": "",
     "cmd": "display fans",
+    "type": "show",
+    "parse_type": "regexp",
+    "parse_content": ""
+  },
+  {
+    "name": "version_check",
+    "description": "版本检查",
+    "vendor": "cisco",
+    "model": "ios",
+    "cmd": "show version",
     "type": "show",
     "parse_type": "regexp",
     "parse_content": ""
