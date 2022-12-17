@@ -1,0 +1,54 @@
+POST http://127.0.0.1:5000/cmdb/update
+Content-Type: application/json
+
+[{"sn": "SW0000002", "vendor": "cisco", "detail": {"device_type": "cisco_ios"}}]
+###
+
+POST http://127.0.0.1:5000/cmdb/add
+Content-Type: application/json
+
+[{"sn": "SW0000004", "ip":  "1.1.1.1", "hostname": "SW4", "vendor": "cisco", "device_type": "cisco_ios", "ipv6": "", "console_ip": ""}]
+###
+
+GET http://127.0.0.1:5000/action/get
+###
+
+GET http://127.0.0.1:5000/action/get?model=cisco
+###
+
+POST http://127.0.0.1:5000/action/add
+Content-Type: application/json
+
+[
+  {"name":  "version_check", "description":  "镜像检查", "vendor": "", "model":  "h3c", "cmd":  "display version", "type": "show"},
+  {"name":  "version_check", "description":  "镜像检查", "vendor": "", "model":  "huawei", "cmd":  "display version", "type": "show"}
+]
+###
+
+
+POST http://127.0.0.1:5000/action/update
+Content-Type: application/json
+
+[
+  {"id": "1" , "parse_type": "regexp"}
+]
+###
+
+
+POST http://127.0.0.1:5000/action/delete
+Content-Type: application/json
+
+[3, 4]
+###
+
+POST http://127.0.0.1:5000/executor/prompt
+Content-Type: application/json
+
+{"device_condition":  {"ip":  "192.168.31.149"}}
+###
+
+POST http://127.0.0.1:5000/executor/execute
+Content-Type: application/json
+
+{"device_condition":  {"ip":  "192.168.31.149"}, "action_condition":  {"name":  "version_check", "model":  "h3c"}}
+###
