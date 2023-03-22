@@ -1,8 +1,14 @@
 import json
 import abc
-from typing import List, Dict, Optional
+from io import StringIO
+from typing import List, Dict, Optional, Any
+
+from ntc_templates.parse import parse_output
 from sqlalchemy.orm import scoped_session
+from textfsm import TextFSM
+
 from ..models import Action
+from ..models.action import ParseTypeEnum
 
 
 class CommandType:
@@ -29,6 +35,10 @@ class ActionHandler(abc.ABC):
 
     @abc.abstractmethod
     def get(self, condition: Optional[Dict] = None) -> List[Action]:
+        pass
+
+    @abc.abstractmethod
+    def parse(self, device_type: str, action: Any, output: str) -> List[Dict]:
         pass
 
 
@@ -106,6 +116,12 @@ class ActionJSONHandler(ActionHandler):
             print("search action by condition failed, error: %s" % str(e))
         return result
 
+    def parse(self, device_type: str, action: Dict, output: str) -> List[Dict]:
+        try:
+            return parse_output(platform=device_type, command=action["cmd"], data=output)
+        except Exception:
+            return []
+
 
 class ActionORMHandler(ActionHandler):
     def __init__(self, db_handler: scoped_session):
@@ -139,6 +155,24 @@ class ActionORMHandler(ActionHandler):
 
     def get(self, filters: Optional[Dict] = None) -> List[Action]:
         return Action.query.filter_by(**(filters or {})).all()
+    @staticmethod
+    def parse_by_textfsm(output: str, template: str) -> List[Dict]:
+        try:
+            fsm = TextFSM(StringIO(template))
+            return fsm.ParseTextToDicts(output)
+        except Exception:
+            return []
+
+    @staticmethod
+    def parse_by_regexp(output: str, template: str) -> List[Dict]:
+        return []
+
+    def parse(self, device_type: str, action: Action, output: str) -> List[Dict]:
+        if action.parse_type == ParseTypeEnum.TextFSM.value:
+            return self.parse_by_textfsm(output, action.parse_content)
+        if action.parse_type == ParseTypeEnum.Regexp.value:
+            return self.parse_by_regexp(output, action.parse_content)
+        return []
 
 
 # if __name__ == '__main__':

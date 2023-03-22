@@ -1,0 +1,15 @@
+Value Protocol (\S)
+Value Type (\S\S)
+Value Required Prefix (\S+)
+Value List Gateway (\S+)
+Value Distance (\d+)
+Value Metric (\d+)
+Value LastChange (\S+)
+
+Start
+  ^.*----- -> Routes
+
+Routes
+  ^\s\s\S\s\S\S -> Continue.Record
+  ^\s\s${Protocol} ${Type} ${Prefix}\s+via ${Gateway}\s+${Distance}/${Metric}\s+${LastChange}
+  ^\s+via ${Gateway}

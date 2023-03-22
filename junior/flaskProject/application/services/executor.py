@@ -1,10 +1,9 @@
-# from __future__ import annotations
 import time
 import logging
-from typing import Optional, Dict
+from typing import Optional, Dict, Union, List
 from .action import ActionHandler, Action, CommandType
 from .device import DeviceHandler, Device
-from netmiko import ConnUnify
+from netmiko import ConnUnify, BaseConnection
 
 
 class SSHExecutor:
@@ -26,6 +25,7 @@ class SSHExecutor:
             log_format: str = None,
             action_handler: Optional[ActionHandler] = None,
             device_handler: Optional[DeviceHandler] = None,
+            retry_times: int = 3,
     ) -> None:
         self.host = host
         self.port = port
@@ -54,20 +54,30 @@ class SSHExecutor:
 
             logging.basicConfig(filename=log_file, level=log_level, format=log_format)
             self.logger = logging.getLogger(__name__)
-        self.conn = self.connect()
+        self.retry_times = retry_times
+        self.conn = None
         self.result = []
 
-    def connect(self):
+    @property
+    def connection(self) -> BaseConnection:
+        if not self.conn or not self.conn.is_alive():
+            self.conn = self.connect(self.retry_times)
+        return self.conn
+
+    def connect(self, retry: int) -> BaseConnection:
+        if retry == 0:
+            raise Exception("Retry to connect over maximum")
         try:
             conn = ConnUnify(host=self.host, port=self.port, username=self.username, password=self.password,
-                secret=self.secret, device_type=self.device_type, conn_timeout=self.conn_timeout,
-                auth_timeout=self.auth_timeout, banner_timeout=self.banner_timeout, session_log="netmiko.log", session_log_file_mode="append"
-            )
+                             secret=self.secret, device_type=self.device_type, conn_timeout=self.conn_timeout,
+                             auth_timeout=self.auth_timeout, banner_timeout=self.banner_timeout, session_log="netmiko.log",
+                             session_log_file_mode="append")
             msg = f"Netmiko connection successful to {self.host}:{self.port}"
             self.logger.info(msg)
             return conn
         except Exception as e:
             self.logger.error(str(e))
+            return self.connect(retry - 1)
 
     def __enter__(self) -> "SSHExecutor":
         return self
@@ -79,19 +89,24 @@ class SSHExecutor:
             self.logger.error(exc_tb)
         self.close()
 
-    def execute(self, action: Optional[Action] = None, action_condition: Optional[Dict] = None, read_timeout: int = 10) -> str:
+    def execute(
+            self, action: Optional[Action] = None,
+            action_condition: Optional[Dict] = None,
+            read_timeout: int = 10, parse: bool = False) -> Union[List, str]:
         action_condition.update({"vendor": self.device.vendor.lower(), "model": self.device.model.lower()})
         if action is None:
             action = self.fetch_action(action_condition)
         if action.type == CommandType.Config:
-            output = self.conn.send_config_set(action.cmd, read_timeout=read_timeout)
+            output = self.connection.send_config_set(action.cmd, read_timeout=read_timeout)
         else:
-            self.conn.enable()
-            output = self.conn.send_command(action.cmd, read_timeout=read_timeout)
-        # TODO parse_result = self.parse()
+            self.connection.enable()
+            output = self.connection.send_command(action.cmd, read_timeout=read_timeout)
+
         parse_result = ""
+        if parse:
+            parse_result = self.action_handler.parse(self.device_type, action, output)
         self.save(action.cmd, output, parse_result)
-        return output
+        return parse_result if parse_result else output
 
     def fetch_object(self, condition: Dict) -> Device:
         if self.device_handler is None:
@@ -122,5 +137,5 @@ class SSHExecutor:
         self.result.append({"cmd": cmd, "output": output, "timestamp": time.time(), "parse_result": parse_result})
 
     def close(self):
-        if self.conn is not None:
-            self.conn.disconnect()
+        if self.connection is not None:
+            self.connection.disconnect()

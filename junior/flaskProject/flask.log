@@ -1,0 +1,449 @@
+2023-03-19 20:12:19,815 INFO P[85285] T[6209220608] 34L@__init__.py: [POST]/executor/execute from 127.0.0.1, params {}, body b'{"device_condition":  {"ip":  "192.168.31.149"}, "action_condition":  {"name":  "version_check", "model":  "cisco"}}'
+2023-03-19 20:12:20,766 INFO P[85285] T[6209220608] 66L@executor.py: Netmiko connection successful to 192.168.31.149:22
+2023-03-19 20:13:02,269 INFO P[85285] T[6209220608] 34L@__init__.py: [POST]/executor/execute from 127.0.0.1, params {}, body b'{\n  "device_condition": {\n    "ip":  "192.168.31.149"\n  }, \n  "action_condition":  {\n    "name":  "version_check", \n    "model":  "cisco"\n  },\n  "parse": true\n}'
+2023-03-19 20:13:13,751 INFO P[85285] T[6209220608] 66L@executor.py: Netmiko connection successful to 192.168.31.149:22
+2023-03-19 20:13:27,885 INFO P[85285] T[6209220608] 34L@__init__.py: [POST]/executor/execute from 127.0.0.1, params {}, body b'{\n  "device_condition": {\n    "ip":  "192.168.31.149"\n  },\n  "action_condition":  {\n    "name":  "version_check",\n    "model":  "cisco"\n  },\n  "parse": true\n}'
+2023-03-19 20:13:28,706 INFO P[85285] T[6209220608] 66L@executor.py: Netmiko connection successful to 192.168.31.149:22
+2023-03-19 20:14:36,683 INFO P[85489] T[6243528704] 34L@__init__.py: [POST]/executor/execute from 127.0.0.1, params {}, body b'{\n  "device_condition": {\n    "ip":  "192.168.31.149"\n  },\n  "action_condition":  {\n    "name":  "version_check",\n    "model":  "cisco"\n  },\n  "parse": true\n}'
+2023-03-19 20:14:37,742 INFO P[85489] T[6243528704] 66L@executor.py: Netmiko connection successful to 192.168.31.149:22
+2023-03-19 21:20:43,979 INFO P[86638] T[6183038976] 34L@__init__.py: [POST]/executor/execute from 127.0.0.1, params {}, body b'{\n  "device_condition": {\n    "ip":  "192.168.31.149"\n  },\n  "action_condition":  {\n    "name":  "version_check",\n    "model":  "cisco"\n  },\n  "parse": true\n}'
+2023-03-19 21:20:54,010 ERROR P[86638] T[6183038976] 69L@executor.py: Connection failure to 192.168.31.149:22 (cisco_ios)
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.31.149:22
+
+
+2023-03-19 21:20:54,021 ERROR P[86638] T[6183038976] 76L@executor.py: <class 'AttributeError'>
+2023-03-19 21:20:54,021 ERROR P[86638] T[6183038976] 77L@executor.py: 'NoneType' object has no attribute 'enable'
+2023-03-19 21:20:54,021 ERROR P[86638] T[6183038976] 78L@executor.py: <traceback object at 0x110933c80>
+2023-03-19 21:20:54,022 ERROR P[86638] T[6183038976] 44L@exception.py: 520 Unknown Error: 'NoneType' object has no attribute 'enable'
+2023-03-19 21:20:54,036 ERROR P[86638] T[6183038976] 45L@exception.py: Traceback (most recent call last):
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/views/executor.py", line 48, in execute
+    output = ssh.execute(action=action, action_condition=action_condition, parse=data.get("parse", False))
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/services/executor.py", line 88, in execute
+    self.conn.enable()
+AttributeError: 'NoneType' object has no attribute 'enable'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ethanyue/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ethanyue/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/views/executor.py", line 51, in execute
+    raise ExecutorError(message=str(e))
+application.exception.ExecutorError: 520 Unknown Error: 'NoneType' object has no attribute 'enable'
+
+2023-03-19 21:21:15,089 INFO P[86638] T[6183038976] 34L@__init__.py: [POST]/executor/execute from 127.0.0.1, params {}, body b'{\n  "device_condition": {\n    "ip":  "192.168.31.149"\n  },\n  "action_condition":  {\n    "name":  "version_check",\n    "model":  "cisco"\n  },\n  "parse": true\n}'
+2023-03-19 21:21:25,097 ERROR P[86638] T[6183038976] 69L@executor.py: Connection failure to 192.168.31.149:22 (cisco_ios)
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.31.149:22
+
+
+2023-03-19 21:21:25,102 ERROR P[86638] T[6183038976] 76L@executor.py: <class 'AttributeError'>
+2023-03-19 21:21:25,102 ERROR P[86638] T[6183038976] 77L@executor.py: 'NoneType' object has no attribute 'enable'
+2023-03-19 21:21:25,103 ERROR P[86638] T[6183038976] 78L@executor.py: <traceback object at 0x110990680>
+2023-03-19 21:21:25,103 ERROR P[86638] T[6183038976] 44L@exception.py: 520 Unknown Error: 'NoneType' object has no attribute 'enable'
+2023-03-19 21:21:25,104 ERROR P[86638] T[6183038976] 45L@exception.py: Traceback (most recent call last):
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/views/executor.py", line 48, in execute
+    output = ssh.execute(action=action, action_condition=action_condition, parse=data.get("parse", False))
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/services/executor.py", line 88, in execute
+    self.conn.enable()
+AttributeError: 'NoneType' object has no attribute 'enable'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ethanyue/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ethanyue/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/views/executor.py", line 51, in execute
+    raise ExecutorError(message=str(e))
+application.exception.ExecutorError: 520 Unknown Error: 'NoneType' object has no attribute 'enable'
+
+2023-03-19 21:22:21,580 INFO P[86638] T[6183038976] 34L@__init__.py: [POST]/executor/execute from 127.0.0.1, params {}, body b'{\n  "device_condition": {\n    "ip":  "192.168.31.149"\n  },\n  "action_condition":  {\n    "name":  "version_check",\n    "model":  "cisco"\n  },\n  "parse": true\n}'
+2023-03-19 21:22:31,927 INFO P[86638] T[6183038976] 66L@executor.py: Netmiko connection successful to 192.168.31.149:22
+2023-03-21 22:06:24,569 INFO P[91631] T[6255095808] 34L@__init__.py: [POST]/executor/execute from 127.0.0.1, params {}, body b'{\n  "device_condition": {\n    "ip":  "192.168.31.149"\n  },\n  "action_condition":  {\n    "name":  "version_check",\n    "model":  "cisco"\n  },\n  "parse": true\n}'
+2023-03-21 22:06:34,612 ERROR P[91631] T[6255095808] 69L@executor.py: Connection failure to 192.168.31.149:22 (cisco_ios)
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.31.149:22
+
+
+2023-03-21 22:06:34,619 ERROR P[91631] T[6255095808] 76L@executor.py: <class 'AttributeError'>
+2023-03-21 22:06:34,619 ERROR P[91631] T[6255095808] 77L@executor.py: 'NoneType' object has no attribute 'enable'
+2023-03-21 22:06:34,619 ERROR P[91631] T[6255095808] 78L@executor.py: <traceback object at 0x1039f2c40>
+2023-03-21 22:06:34,620 ERROR P[91631] T[6255095808] 44L@exception.py: 520 Unknown Error: 'NoneType' object has no attribute 'enable'
+2023-03-21 22:06:34,630 ERROR P[91631] T[6255095808] 45L@exception.py: Traceback (most recent call last):
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/views/executor.py", line 48, in execute
+    output = ssh.execute(action=action, action_condition=action_condition, parse=data.get("parse", False))
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/services/executor.py", line 91, in execute
+    self.conn.enable()
+AttributeError: 'NoneType' object has no attribute 'enable'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ethanyue/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ethanyue/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/views/executor.py", line 51, in execute
+    raise ExecutorError(message=str(e))
+application.exception.ExecutorError: 520 Unknown Error: 'NoneType' object has no attribute 'enable'
+
+2023-03-21 22:06:59,411 INFO P[91631] T[6255095808] 34L@__init__.py: [POST]/executor/execute from 127.0.0.1, params {}, body b'{\n  "device_condition": {\n    "ip":  "192.168.31.149"\n  },\n  "action_condition":  {\n    "name":  "version_check",\n    "model":  "cisco"\n  },\n  "parse": true\n}'
+2023-03-21 22:07:09,419 ERROR P[91631] T[6255095808] 69L@executor.py: Connection failure to 192.168.31.149:22 (cisco_ios)
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.31.149:22
+
+
+2023-03-21 22:07:09,427 ERROR P[91631] T[6255095808] 76L@executor.py: <class 'AttributeError'>
+2023-03-21 22:07:09,428 ERROR P[91631] T[6255095808] 77L@executor.py: 'NoneType' object has no attribute 'enable'
+2023-03-21 22:07:09,428 ERROR P[91631] T[6255095808] 78L@executor.py: <traceback object at 0x1039f2f80>
+2023-03-21 22:07:09,429 ERROR P[91631] T[6255095808] 44L@exception.py: 520 Unknown Error: 'NoneType' object has no attribute 'enable'
+2023-03-21 22:07:09,430 ERROR P[91631] T[6255095808] 45L@exception.py: Traceback (most recent call last):
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/views/executor.py", line 48, in execute
+    output = ssh.execute(action=action, action_condition=action_condition, parse=data.get("parse", False))
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/services/executor.py", line 91, in execute
+    self.conn.enable()
+AttributeError: 'NoneType' object has no attribute 'enable'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ethanyue/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ethanyue/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/views/executor.py", line 51, in execute
+    raise ExecutorError(message=str(e))
+application.exception.ExecutorError: 520 Unknown Error: 'NoneType' object has no attribute 'enable'
+
+2023-03-21 22:07:12,679 INFO P[91631] T[6255095808] 34L@__init__.py: [POST]/executor/execute from 127.0.0.1, params {}, body b'{\n  "device_condition": {\n    "ip":  "192.168.31.149"\n  },\n  "action_condition":  {\n    "name":  "version_check",\n    "model":  "cisco"\n  },\n  "parse": true\n}'
+2023-03-21 22:07:22,687 ERROR P[91631] T[6255095808] 69L@executor.py: Connection failure to 192.168.31.149:22 (cisco_ios)
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.31.149:22
+
+
+2023-03-21 22:07:22,690 ERROR P[91631] T[6255095808] 76L@executor.py: <class 'AttributeError'>
+2023-03-21 22:07:22,690 ERROR P[91631] T[6255095808] 77L@executor.py: 'NoneType' object has no attribute 'enable'
+2023-03-21 22:07:22,690 ERROR P[91631] T[6255095808] 78L@executor.py: <traceback object at 0x104099780>
+2023-03-21 22:07:22,690 ERROR P[91631] T[6255095808] 44L@exception.py: 520 Unknown Error: 'NoneType' object has no attribute 'enable'
+2023-03-21 22:07:22,691 ERROR P[91631] T[6255095808] 45L@exception.py: Traceback (most recent call last):
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/views/executor.py", line 48, in execute
+    output = ssh.execute(action=action, action_condition=action_condition, parse=data.get("parse", False))
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/services/executor.py", line 91, in execute
+    self.conn.enable()
+AttributeError: 'NoneType' object has no attribute 'enable'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ethanyue/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ethanyue/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/views/executor.py", line 51, in execute
+    raise ExecutorError(message=str(e))
+application.exception.ExecutorError: 520 Unknown Error: 'NoneType' object has no attribute 'enable'
+
+2023-03-21 22:07:31,469 INFO P[91631] T[6255095808] 34L@__init__.py: [POST]/executor/execute from 127.0.0.1, params {}, body b'{\n  "device_condition": {\n    "ip":  "192.168.31.149"\n  },\n  "action_condition":  {\n    "name":  "version_check",\n    "model":  "cisco"\n  },\n  "parse": true\n}'
+2023-03-21 22:07:31,476 ERROR P[91631] T[6255095808] 69L@executor.py: Connection failure to 192.168.31.149:22 (cisco_ios)
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.31.149:22
+
+
+2023-03-21 22:07:31,479 ERROR P[91631] T[6255095808] 76L@executor.py: <class 'AttributeError'>
+2023-03-21 22:07:31,479 ERROR P[91631] T[6255095808] 77L@executor.py: 'NoneType' object has no attribute 'enable'
+2023-03-21 22:07:31,479 ERROR P[91631] T[6255095808] 78L@executor.py: <traceback object at 0x1032c4c40>
+2023-03-21 22:07:31,480 ERROR P[91631] T[6255095808] 44L@exception.py: 520 Unknown Error: 'NoneType' object has no attribute 'enable'
+2023-03-21 22:07:31,480 ERROR P[91631] T[6255095808] 45L@exception.py: Traceback (most recent call last):
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/views/executor.py", line 48, in execute
+    output = ssh.execute(action=action, action_condition=action_condition, parse=data.get("parse", False))
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/services/executor.py", line 91, in execute
+    self.conn.enable()
+AttributeError: 'NoneType' object has no attribute 'enable'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ethanyue/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ethanyue/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/views/executor.py", line 51, in execute
+    raise ExecutorError(message=str(e))
+application.exception.ExecutorError: 520 Unknown Error: 'NoneType' object has no attribute 'enable'
+
+2023-03-21 22:07:34,923 INFO P[91631] T[6255095808] 34L@__init__.py: [POST]/executor/execute from 127.0.0.1, params {}, body b'{\n  "device_condition": {\n    "ip":  "192.168.31.149"\n  },\n  "action_condition":  {\n    "name":  "version_check",\n    "model":  "cisco"\n  },\n  "parse": true\n}'
+2023-03-21 22:07:44,931 ERROR P[91631] T[6255095808] 69L@executor.py: Connection failure to 192.168.31.149:22 (cisco_ios)
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.31.149:22
+
+
+2023-03-21 22:07:44,938 ERROR P[91631] T[6255095808] 76L@executor.py: <class 'AttributeError'>
+2023-03-21 22:07:44,938 ERROR P[91631] T[6255095808] 77L@executor.py: 'NoneType' object has no attribute 'enable'
+2023-03-21 22:07:44,938 ERROR P[91631] T[6255095808] 78L@executor.py: <traceback object at 0x1040c2e00>
+2023-03-21 22:07:44,939 ERROR P[91631] T[6255095808] 44L@exception.py: 520 Unknown Error: 'NoneType' object has no attribute 'enable'
+2023-03-21 22:07:44,940 ERROR P[91631] T[6255095808] 45L@exception.py: Traceback (most recent call last):
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/views/executor.py", line 48, in execute
+    output = ssh.execute(action=action, action_condition=action_condition, parse=data.get("parse", False))
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/services/executor.py", line 91, in execute
+    self.conn.enable()
+AttributeError: 'NoneType' object has no attribute 'enable'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ethanyue/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ethanyue/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/views/executor.py", line 51, in execute
+    raise ExecutorError(message=str(e))
+application.exception.ExecutorError: 520 Unknown Error: 'NoneType' object has no attribute 'enable'
+
+2023-03-21 22:08:07,643 INFO P[91631] T[6255095808] 34L@__init__.py: [POST]/executor/execute from 127.0.0.1, params {}, body b'{\n  "device_condition": {\n    "ip":  "192.168.31.149"\n  },\n  "action_condition":  {\n    "name":  "version_check",\n    "model":  "cisco"\n  },\n  "parse": true\n}'
+2023-03-21 22:08:17,656 ERROR P[91631] T[6255095808] 69L@executor.py: Connection failure to 192.168.31.149:22 (cisco_ios)
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.31.149:22
+
+
+2023-03-21 22:08:25,118 ERROR P[91631] T[6255095808] 76L@executor.py: <class 'AttributeError'>
+2023-03-21 22:08:25,119 ERROR P[91631] T[6255095808] 77L@executor.py: 'NoneType' object has no attribute 'enable'
+2023-03-21 22:08:25,119 ERROR P[91631] T[6255095808] 78L@executor.py: <traceback object at 0x1036c1580>
+2023-03-21 22:08:25,120 ERROR P[91631] T[6255095808] 44L@exception.py: 520 Unknown Error: 'NoneType' object has no attribute 'enable'
+2023-03-21 22:08:25,121 ERROR P[91631] T[6255095808] 45L@exception.py: Traceback (most recent call last):
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/views/executor.py", line 48, in execute
+    output = ssh.execute(action=action, action_condition=action_condition, parse=data.get("parse", False))
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/services/executor.py", line 91, in execute
+    self.conn.enable()
+AttributeError: 'NoneType' object has no attribute 'enable'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ethanyue/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ethanyue/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/views/executor.py", line 51, in execute
+    raise ExecutorError(message=str(e))
+application.exception.ExecutorError: 520 Unknown Error: 'NoneType' object has no attribute 'enable'
+
+2023-03-21 22:08:45,819 INFO P[91631] T[6255095808] 34L@__init__.py: [POST]/executor/execute from 127.0.0.1, params {}, body b'{\n  "device_condition": {\n    "ip":  "192.168.31.149"\n  },\n  "action_condition":  {\n    "name":  "version_check",\n    "model":  "cisco"\n  },\n  "parse": true\n}'
+2023-03-21 22:09:08,159 ERROR P[91631] T[6255095808] 69L@executor.py: Connection failure to 192.168.31.149:22 (cisco_ios)
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.31.149:22
+
+
+2023-03-21 22:09:13,252 ERROR P[91631] T[6255095808] 76L@executor.py: <class 'AttributeError'>
+2023-03-21 22:09:13,253 ERROR P[91631] T[6255095808] 77L@executor.py: 'NoneType' object has no attribute 'enable'
+2023-03-21 22:09:13,253 ERROR P[91631] T[6255095808] 78L@executor.py: <traceback object at 0x104218c40>
+2023-03-21 22:09:13,253 ERROR P[91631] T[6255095808] 44L@exception.py: 520 Unknown Error: 'NoneType' object has no attribute 'enable'
+2023-03-21 22:09:13,254 ERROR P[91631] T[6255095808] 45L@exception.py: Traceback (most recent call last):
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/views/executor.py", line 48, in execute
+    output = ssh.execute(action=action, action_condition=action_condition, parse=data.get("parse", False))
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/services/executor.py", line 91, in execute
+    self.conn.enable()
+AttributeError: 'NoneType' object has no attribute 'enable'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ethanyue/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ethanyue/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/views/executor.py", line 51, in execute
+    raise ExecutorError(message=str(e))
+application.exception.ExecutorError: 520 Unknown Error: 'NoneType' object has no attribute 'enable'
+
+2023-03-21 22:14:02,398 INFO P[91822] T[6249984000] 34L@__init__.py: [POST]/executor/execute from 127.0.0.1, params {}, body b'{\n  "device_condition": {\n    "ip":  "192.168.31.149"\n  },\n  "action_condition":  {\n    "name":  "version_check",\n    "model":  "cisco"\n  },\n  "parse": true\n}'
+2023-03-21 22:14:03,450 INFO P[91822] T[6249984000] 68L@executor.py: Netmiko connection successful to 192.168.31.149:22
+2023-03-21 22:14:29,479 INFO P[91822] T[6249984000] 34L@__init__.py: [POST]/executor/execute from 127.0.0.1, params {}, body b'{\n  "device_condition": {\n    "ip":  "192.168.31.149"\n  },\n  "action_condition":  {\n    "name":  "version_check",\n    "model":  "cisco"\n  },\n  "parse": true\n}'
+2023-03-21 22:14:39,487 ERROR P[91822] T[6249984000] 72L@executor.py: Connection failure to 192.168.31.149:22 (cisco_ios)
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.31.149:22
+
+
+2023-03-21 22:14:49,491 ERROR P[91822] T[6249984000] 72L@executor.py: Connection failure to 192.168.31.149:22 (cisco_ios)
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.31.149:22
+
+
+2023-03-21 22:14:59,493 ERROR P[91822] T[6249984000] 72L@executor.py: Connection failure to 192.168.31.149:22 (cisco_ios)
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.31.149:22
+
+
+2023-03-21 22:14:59,495 ERROR P[91822] T[6249984000] 44L@exception.py: 520 Unknown Error: Retry to connect over maximum
+2023-03-21 22:14:59,512 ERROR P[91822] T[6249984000] 45L@exception.py: Traceback (most recent call last):
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/views/executor.py", line 40, in execute
+    with SSHExecutor(
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/services/executor.py", line 57, in __init__
+    self.conn = self.connect()
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/services/executor.py", line 74, in connect
+    raise Exception("Retry to connect over maximum")
+Exception: Retry to connect over maximum
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ethanyue/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ethanyue/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/views/executor.py", line 51, in execute
+    raise ExecutorError(message=str(e))
+application.exception.ExecutorError: 520 Unknown Error: Retry to connect over maximum
+
+2023-03-21 22:24:24,197 INFO P[91822] T[6249984000] 34L@__init__.py: [POST]/executor/execute from 127.0.0.1, params {}, body b'{\n  "device_condition": {\n    "ip":  "192.168.31.149"\n  },\n  "action_condition":  {\n    "name":  "version_check",\n    "model":  "cisco"\n  },\n  "parse": true\n}'
+2023-03-21 22:24:34,210 ERROR P[91822] T[6249984000] 72L@executor.py: Connection failure to 192.168.31.149:22 (cisco_ios)
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.31.149:22
+
+
+2023-03-21 22:24:37,023 INFO P[91822] T[6249984000] 68L@executor.py: Netmiko connection successful to 192.168.31.149:22
+2023-03-21 22:29:14,113 INFO P[92136] T[6216806400] 34L@__init__.py: [POST]/executor/execute from 127.0.0.1, params {}, body b'{\n  "device_condition": {\n    "ip":  "192.168.31.149"\n  },\n  "action_condition":  {\n    "name":  "version_check",\n    "model":  "cisco"\n  },\n  "parse": true\n}'
+2023-03-21 22:29:14,159 ERROR P[92136] T[6216806400] 85L@executor.py: <class 'AttributeError'>
+2023-03-21 22:29:14,159 ERROR P[92136] T[6216806400] 86L@executor.py: 'NoneType' object has no attribute 'enable'
+2023-03-21 22:29:14,160 ERROR P[92136] T[6216806400] 87L@executor.py: <traceback object at 0x1058a7d00>
+2023-03-21 22:29:14,160 ERROR P[92136] T[6216806400] 44L@exception.py: 520 Unknown Error: 'NoneType' object has no attribute 'enable'
+2023-03-21 22:29:14,168 ERROR P[92136] T[6216806400] 45L@exception.py: Traceback (most recent call last):
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/views/executor.py", line 48, in execute
+    output = ssh.execute(action=action, action_condition=action_condition, parse=data.get("parse", False))
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/services/executor.py", line 100, in execute
+    self.connection.enable()
+AttributeError: 'NoneType' object has no attribute 'enable'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ethanyue/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ethanyue/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/views/executor.py", line 51, in execute
+    raise ExecutorError(message=str(e))
+application.exception.ExecutorError: 520 Unknown Error: 'NoneType' object has no attribute 'enable'
+
+2023-03-21 22:29:18,318 INFO P[92136] T[6216806400] 34L@__init__.py: [POST]/executor/execute from 127.0.0.1, params {}, body b'{\n  "device_condition": {\n    "ip":  "192.168.31.149"\n  },\n  "action_condition":  {\n    "name":  "version_check",\n    "model":  "cisco"\n  },\n  "parse": true\n}'
+2023-03-21 22:29:18,328 ERROR P[92136] T[6216806400] 85L@executor.py: <class 'AttributeError'>
+2023-03-21 22:29:18,328 ERROR P[92136] T[6216806400] 86L@executor.py: 'NoneType' object has no attribute 'enable'
+2023-03-21 22:29:18,328 ERROR P[92136] T[6216806400] 87L@executor.py: <traceback object at 0x105868240>
+2023-03-21 22:29:18,329 ERROR P[92136] T[6216806400] 44L@exception.py: 520 Unknown Error: 'NoneType' object has no attribute 'enable'
+2023-03-21 22:29:18,329 ERROR P[92136] T[6216806400] 45L@exception.py: Traceback (most recent call last):
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/views/executor.py", line 48, in execute
+    output = ssh.execute(action=action, action_condition=action_condition, parse=data.get("parse", False))
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/services/executor.py", line 100, in execute
+    self.connection.enable()
+AttributeError: 'NoneType' object has no attribute 'enable'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ethanyue/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ethanyue/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/ethanyue/workspace/python/PythonAutoOps/junior/flaskProject/application/views/executor.py", line 51, in execute
+    raise ExecutorError(message=str(e))
+application.exception.ExecutorError: 520 Unknown Error: 'NoneType' object has no attribute 'enable'
+
+2023-03-21 22:29:37,220 INFO P[92154] T[6220312576] 34L@__init__.py: [POST]/executor/execute from 127.0.0.1, params {}, body b'{\n  "device_condition": {\n    "ip":  "192.168.31.149"\n  },\n  "action_condition":  {\n    "name":  "version_check",\n    "model":  "cisco"\n  },\n  "parse": true\n}'
+2023-03-21 22:29:38,065 INFO P[92154] T[6220312576] 71L@executor.py: Netmiko connection successful to 192.168.31.149:22
+2023-03-22 22:09:09,079 INFO P[97644] T[6125072384] 34L@__init__.py: [POST]/executor/execute from 127.0.0.1, params {}, body b'{\n  "device_condition": {\n    "ip":  "192.168.31.149"\n  },\n  "action_condition":  {\n    "name":  "version_check",\n    "model":  "cisco"\n  },\n  "parse": true\n}'
+2023-03-22 22:09:09,960 INFO P[97644] T[6125072384] 76L@executor.py: Netmiko connection successful to 192.168.31.149:22

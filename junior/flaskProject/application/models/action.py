@@ -1,6 +1,12 @@
+from enum import Enum
 from typing import Dict
-from utils import to_model as tm, to_dict as td
+from junior.flaskProject.utils import to_model as tm, to_dict as td
 from . import db
+
+
+class ParseTypeEnum(str, Enum):
+    TextFSM = "textfsm"
+    Regexp = "regexp"
 
 
 class Action(db.Model):
@@ -13,7 +19,7 @@ class Action(db.Model):
     cmd = db.Column(db.String(256), nullable=False, comment="命令行")
     type = db.Column(db.String(8), comment="命令类型[show|config]")
     parse_type = db.Column(db.String(8), comment="解析类型[regexp|textfsm]")
-    parse_content = db.Column(db.String(1024), comment="解析内容")
+    parse_content = db.Column(db.Text, comment="解析内容")
 
     @classmethod
     def to_model(cls, **kwargs) -> "Action":

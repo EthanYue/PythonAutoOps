@@ -1,7 +1,7 @@
 from typing import Dict
 from sqlalchemy import text, DateTime, Numeric
-from utils import to_model as tm
 from . import db
+from junior.flaskProject.utils import to_model as tm
 
 
 class Devices(db.Model):

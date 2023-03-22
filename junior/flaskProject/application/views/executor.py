@@ -13,13 +13,13 @@ def get_prompt():
         device_handler = DeviceORMHandler(db.session())
         action_handler = ActionORMHandler(db.session())
         with SSHExecutor(
-            username=current_app.config.get("SSH_USERNAME"),
-            password=current_app.config.get("SSH_PASSWORD"),
-            secret=current_app.config.get("SSH_SECRET"),
-            device_condition=data.get("device_condition"),
-            device_handler=device_handler,
-            action_handler=action_handler,
-            logger=current_app.logger) as ssh:
+                username=current_app.config.get("SSH_USERNAME"),
+                password=current_app.config.get("SSH_PASSWORD"),
+                secret=current_app.config.get("SSH_SECRET"),
+                device_condition=data.get("device_condition"),
+                device_handler=device_handler,
+                action_handler=action_handler,
+                logger=current_app.logger) as ssh:
             prompt = ssh.conn.base_prompt
         return Success(data=prompt)
     except Exception as e:
@@ -38,14 +38,14 @@ def execute():
         device_handler = DeviceORMHandler(db.session())
         action_handler = ActionORMHandler(db.session())
         with SSHExecutor(
-            username=current_app.config.get("SSH_USERNAME"),
-            password=current_app.config.get("SSH_PASSWORD"),
-            secret=current_app.config.get("SSH_SECRET"),
-            device_condition=device_condition,
-            device_handler=device_handler,
-            action_handler=action_handler,
-            logger=current_app.logger) as ssh:
-            output = ssh.execute(action=action, action_condition=action_condition)
+                username=current_app.config.get("SSH_USERNAME"),
+                password=current_app.config.get("SSH_PASSWORD"),
+                secret=current_app.config.get("SSH_SECRET"),
+                device_condition=device_condition,
+                device_handler=device_handler,
+                action_handler=action_handler,
+                logger=current_app.logger) as ssh:
+            output = ssh.execute(action=action, action_condition=action_condition, parse=data.get("parse", False))
             return Success(data=output)
     except Exception as e:
         raise ExecutorError(message=str(e))

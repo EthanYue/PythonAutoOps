@@ -4,7 +4,7 @@ from flask import Flask, request
 from .models import db
 from .views import cmdb_blueprint, action_blueprint, executor_blueprint
 from .exception import register_errors
-from config import config_mapper
+from junior.flaskProject.config import config_mapper
 
 
 def create_app(env: str = "dev") -> Flask:
