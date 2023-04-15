@@ -1,7 +1,7 @@
 from enum import Enum
 from typing import Dict
 from junior.flaskProject.utils import to_model as tm, to_dict as td
-from . import db
+from junior.flaskProject.application.models import db
 
 
 class ParseTypeEnum(str, Enum):
@@ -11,6 +11,8 @@ class ParseTypeEnum(str, Enum):
 
 class Action(db.Model):
     __tablename__ = "action"
+    __table_args__ = {"extend_existing": True}
+
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(64), nullable=False, comment="动作名称")
     description = db.Column(db.String(256), comment="动作描述")

@@ -155,6 +155,7 @@ class ActionORMHandler(ActionHandler):
 
     def get(self, filters: Optional[Dict] = None) -> List[Action]:
         return Action.query.filter_by(**(filters or {})).all()
+
     @staticmethod
     def parse_by_textfsm(output: str, template: str) -> List[Dict]:
         try:
