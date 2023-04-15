@@ -12,6 +12,7 @@ class CommandType:
 
 
 class Device:
+    sn = ""
     ip = ""
     hostname = ""
     vendor = ""
@@ -66,6 +67,9 @@ class DeviceHandler(abc.ABC):
 
     @abc.abstractmethod
     def get(self, condition: Optional[Dict] = None) -> List[Device]:
+        pass
+
+    def get_by_sn(self, sn_list: List[str]) -> List[Device]:
         pass
 
 
@@ -141,6 +145,9 @@ class DeviceJSONHandler(DeviceHandler):
             print("search device by condition failed, error: %s" % str(e))
         return result
 
+    def get_by_sn(self, sn_list: List[str]) -> List[Device]:
+        pass
+
 
 class DeviceORMHandler(DeviceHandler):
     def __init__(self, db_handler: scoped_session):
@@ -178,6 +185,11 @@ class DeviceORMHandler(DeviceHandler):
 
     def get(self, filters: Optional[Dict] = None) -> List[Device]:
         devices_model = Devices.query.filter_by(**(filters or {})).all()
+        return [Device.from_model(item) for item in devices_model]
+
+    @staticmethod
+    def get_by_sn(sn_list: List[str]) -> List[Device]:
+        devices_model = Devices.query.filter(Devices.sn.in_(sn_list)).all()
         return [Device.from_model(item) for item in devices_model]
 
 #

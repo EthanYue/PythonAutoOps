@@ -1,3 +1,5 @@
+import time
+from datetime import datetime
 from typing import Dict, Any
 from flask import request
 
@@ -27,3 +29,13 @@ def to_dict(self: Any) -> Dict:
     :return: Dict
     """
     return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+
+
+def format_time(t: int) -> str:
+    if not t:
+        t = time.time()
+    return time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(t))
+
+
+def format_time_str(t: str) -> datetime:
+    return datetime.strptime(t, "%Y-%m-%d %H:%M:%S")

@@ -2,16 +2,16 @@ import logging
 from logging.handlers import RotatingFileHandler
 from flask import Flask, request
 from .models import db
-from .views import cmdb_blueprint, action_blueprint, executor_blueprint
+from .views import cmdb_blueprint, action_blueprint, executor_blueprint, inspection_blueprint
 from .exception import register_errors
-from config import config_mapper
+from junior.flaskProject.config import config_mapper
 
 
 def create_app(env: str = "dev") -> Flask:
     app = Flask(__name__)
     app.config.from_object(config_mapper[env])
     db.init_app(app)
-    blueprints = [cmdb_blueprint, action_blueprint, executor_blueprint]
+    blueprints = [cmdb_blueprint, action_blueprint, executor_blueprint, inspection_blueprint]
     for blueprint in blueprints:
         app.register_blueprint(blueprint)
     register_logging(app)

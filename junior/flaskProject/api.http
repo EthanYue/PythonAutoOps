@@ -50,5 +50,29 @@ Content-Type: application/json
 POST http://127.0.0.1:5000/executor/execute
 Content-Type: application/json
 
-{"device_condition":  {"ip":  "192.168.31.149"}, "action_condition":  {"name":  "version_check", "model":  "h3c"}}
+{
+  "device_condition": {
+    "ip":  "192.168.31.149"
+  },
+  "action_condition":  {
+    "name":  "version_check",
+    "model":  "cisco"
+  },
+  "parse": true
+}
+###
+
+POST http://127.0.0.1:5000/inspection/run
+Content-Type: application/json
+
+{
+  "action_ids": [1],
+  "sn_list": ["SW0000003"]
+}
+###
+
+POST http://127.0.0.1:5000/inspection/export
+Content-Type: application/json
+
+{}
 ###
