@@ -61,3 +61,18 @@ Content-Type: application/json
   "parse": true
 }
 ###
+
+POST http://127.0.0.1:5000/inspection/run
+Content-Type: application/json
+
+{
+  "action_ids": [1],
+  "sn_list": ["SW0000003"]
+}
+###
+
+POST http://127.0.0.1:5000/inspection/export
+Content-Type: application/json
+
+{}
+###
