@@ -1,3 +1,3 @@
 from .device import DeviceORMHandler
 from .action import ActionORMHandler
-from .executor import SSHExecutor
+from .ssh_executor import SSHExecutor

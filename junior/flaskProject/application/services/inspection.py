@@ -11,7 +11,7 @@ from concurrent.futures.thread import ThreadPoolExecutor
 from sqlalchemy.orm import scoped_session
 from sqlalchemy import and_
 
-from junior.flaskProject.application.services.executor import SSHExecutor
+from junior.flaskProject.application.services.ssh_executor import SSHExecutor
 from junior.flaskProject.utils import format_time
 from junior.flaskProject.application.models.inspection import Inspection as InspectionModel
 from junior.flaskProject.application.services.action import ActionHandler

@@ -29,3 +29,5 @@ class Action(db.Model):
 
     def to_dict(self) -> Dict:
         return td(self)
+
+
